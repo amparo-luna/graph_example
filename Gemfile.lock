@@ -73,6 +73,7 @@ GEM
       pry (~> 0.10)
     pry-rails (0.3.6)
       pry (>= 0.10.4)
+    puma (3.11.0)
     rack (1.4.7)
     rack-cache (1.7.1)
       rack (>= 0.4)
@@ -132,6 +133,7 @@ DEPENDENCIES
   pry
   pry-byebug
   pry-rails
+  puma
   rails (~> 3.2.22)!
   railslts-version!
   railties!

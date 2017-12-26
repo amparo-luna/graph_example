@@ -3,4 +3,6 @@ RestApiTest::Application.routes.draw do
   get 'authorize' => 'auth#gettoken'
   get 'events/index'
   get 'calendar_view/index'
+  post 'subscriptions/create'
+  post 'notify' => 'notifications#handle'
 end

@@ -16,6 +16,7 @@ gem 'oauth2','~> 1.2.0'
 gem 'sqlite3'
 gem "rake", "10.0.3"
 gem 'jquery-rails'
+gem 'puma'
 
 group :development, :test, :cucumber do
   gem 'nokogiri', '~> 1.6.0'
