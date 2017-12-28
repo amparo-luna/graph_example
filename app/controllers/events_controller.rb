@@ -10,15 +10,16 @@ class EventsController < ApplicationController
       end
 
       response = connection.get do |request|
-        request.url "/v1.0/me/events"
+        request.url "/v1.0/me/events?$top=20"
         request.headers["Authorization"] = "Bearer #{token}"
         request.headers["Accept"] = "application/json"
       end
 
-      @events = JSON.parse(response.body)['value']
+      json_response = JSON.parse(response.body)
+      @events = json_response['value']
 
       respond_to do |format|
-        format.json { render json: @events }
+        format.json { render json: json_response }
         format.html
       end
     else

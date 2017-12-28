@@ -23,6 +23,7 @@ class CalendarViewController < ApplicationController
         request.url "/v1.0/me/calendarView/delta?#{query_params}"
         request.headers['Authorization'] = "Bearer #{token}"
         request.headers['Accept'] = 'application/json'
+        request.headers['Prefer'] = 'odata.maxpagesize=5'
       end
 
       json_response = JSON.parse(response.body)

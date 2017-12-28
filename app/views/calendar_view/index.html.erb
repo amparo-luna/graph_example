@@ -1,4 +1,7 @@
 <h1>Calendar View</h1>
+<h5>
+  <%= link_to 'See Raw JSON', calendar_view_index_path(format: :json) %>
+</h5>
   <%= form_tag calendar_view_index_path, method: :get, class: 'inline-form' do %>
     <div class="form-group">
       <%= label_tag 'delta_token', 'Delta Token:' %>
