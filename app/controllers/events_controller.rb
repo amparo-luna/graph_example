@@ -10,7 +10,7 @@ class EventsController < ApplicationController
       end
 
       response = connection.get do |request|
-        request.url "/v1.0/me/events?$top=20"
+        request.url "/v1.0/me/events?$top=20&$expand=Extensions($filter=id%20eq%20'CampusData')"
         request.headers["Authorization"] = "Bearer #{token}"
         request.headers["Accept"] = "application/json"
       end

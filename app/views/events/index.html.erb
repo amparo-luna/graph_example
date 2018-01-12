@@ -8,12 +8,14 @@
     <th>Subject</th>
     <th>Start</th>
     <th>End</th>
+    <th>Extended Props</th>
   </tr>
   <% @events.each do |event| %>
     <tr>
       <td><%= event['subject'] %></td>
-      <td><%= event['start']['dateTime'] %></td>
-      <td><%= event['end']['dateTime'] %></td>
+      <td><%= date_time_format(event['start']['dateTime']) %></td>
+      <td><%= date_time_format(event['end']['dateTime']) %></td>
+      <td><%= event['extensions'] %></td>
     </tr>
   <% end %>
 </table>
