@@ -1,0 +1,9 @@
+<h1>New Event with Extended Properties</h1>
+<br>
+<%= form_tag extended_properties_create_path, class: 'inline-form' do %>
+  <div class="form-group">
+    <%= label_tag 'event_subject', 'Event Subject:' %>
+    <%= text_field_tag 'event_subject', nil, class: 'form-control' %>
+  </div>
+  <%= submit_tag 'Create Event', class: 'btn btn-primary' %>
+<% end %>

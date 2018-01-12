@@ -5,7 +5,7 @@ module AuthHelper
              'profile',
              'offline_access',
              'User.Read',
-             'Calendars.Read'
+             'Calendars.ReadWrite'
            ]
 
   # Generates the login URL for the app.
