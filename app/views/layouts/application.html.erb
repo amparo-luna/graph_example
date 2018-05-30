@@ -29,12 +29,18 @@
           <li id='inbox-nav'><%= link_to 'Events', events_index_path %></li>
           <li id='calendar-nav'><%= link_to 'Calendar View', calendar_view_index_path %></li>
           <li id='extended-props-nav'><%= link_to 'Extended Properties', extended_properties_new_path %></li>
+          <li id='subscriptions-nav'><%= link_to 'Subscriptions',subscriptions_path %></li>
         </ul>
       </div>
     </div>
   </nav>
 
   <div class="container main-container">
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>" role="alert">
+        <%= value %>
+      </div>
+    <% end %>
     <%= yield %>
   </div>
 

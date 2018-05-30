@@ -1,0 +1,9 @@
+<h1>Subscriptions</h1>
+<h5>
+  <%= link_to 'New Subscription', new_subscription_path %>
+</h5>
+<br>
+<% @subscriptions.each_with_index do |subscription, index| %>
+<h3>Subscription #<%= index + 1 %></h3>
+<samp><%= subscription.body %></samp>
+<% end %>
