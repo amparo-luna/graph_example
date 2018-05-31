@@ -1,0 +1,6 @@
+<h1>Notifications</h1>
+<br>
+<% @notifications.each_with_index do |notification, index| %>
+<h3>Notification #<%= index + 1 %></h3>
+<samp><%= notification.value %></samp>
+<% end %>

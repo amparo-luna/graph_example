@@ -8,6 +8,7 @@
     <th>Subject</th>
     <th>Start</th>
     <th>End</th>
+    <th>ID</th>
     <th>Extended Props</th>
   </tr>
   <% @events.each do |event| %>
@@ -15,9 +16,9 @@
       <td><%= event['subject'] %></td>
       <td><%= date_time_format(event['start']['dateTime']) %></td>
       <td><%= date_time_format(event['end']['dateTime']) %></td>
+      <td><%= event['id'] %></td>
       <td><%= event['extensions'] %></td>
     </tr>
   <% end %>
 </table>
 </br>
-<%= link_to 'Subscribe to this calendar', subscriptions_create_path, method: :post %>

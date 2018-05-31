@@ -6,6 +6,7 @@ RestApiTest::Application.routes.draw do
   get "extended_properties/new"
   post "extended_properties/create"
   post 'notify' => 'notifications#handle'
+  get 'notifications/index'
 
   resources :subscriptions, only: [:index, :new, :create]
 end

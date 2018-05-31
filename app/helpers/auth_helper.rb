@@ -25,6 +25,8 @@ module AuthHelper
   def access_token
     # Get the current token hash from session
     token_hash = session[:azure_token]
+    return if token_hash.nil?
+
     token = OAuth2::AccessToken.from_hash(client, token_hash)
 
     # Check if token is expired, refresh if so

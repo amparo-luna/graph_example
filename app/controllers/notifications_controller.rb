@@ -1,4 +1,8 @@
 class NotificationsController < ApplicationController
+  def index
+    @notifications = Notification.all
+  end
+
   def handle
     if params[:validationToken] # For Graph API
       Rails.logger.debug { "Validating token: #{params[:validationToken]}" }
@@ -8,6 +12,7 @@ class NotificationsController < ApplicationController
       render status: :ok, text: params[:validationtoken]
     elsif params['value']
       Rails.logger.debug { "Received notification: #{params['value']}" }
+      Notification.create(value: params['notification'])
       render status: :accepted, text: 'ok'
     end
   end
