@@ -1,0 +1,34 @@
+<h1>Recurring Instances</h1>
+<h4>Start DateTime: <%= date_time_format(@start_date_time) %></h4>
+<h4>End DateTime: <%= date_time_format(@end_date_time) %></h4>
+<br>
+<h5>
+  <%= link_to 'See Raw JSON', instances_index_path(series_master: params[:series_master], exceptions_only: params[:exceptions_only], short_event: params[:short_event], format: :json) %>
+</h5>
+<br>
+<table class="table">
+  <tr>
+    <th>Subject</th>
+    <th>Event Type</th>
+    <th>Start</th>
+    <th>End</th>
+    <th>ID</th>
+  </tr>
+  <% @events.each do |event| %>
+    <tr>
+      <td><%= event['subject'] %></td>
+      <td><%= event['type'] %></td>
+      <td><%= date_time_format(event['start']['dateTime']) %></td>
+      <td><%= date_time_format(event['end']['dateTime']) %></td>
+      <td><%= event['id'] %></td>
+    </tr>
+  <% end %>
+</table>
+</br>
+<h5>
+  <%= link_to 'See Only Exceptions', instances_index_path(series_master: params[:series_master], exceptions_only: true) %>
+</h5>
+</br>
+<h5>
+  <%= link_to 'See Less Details (Only JSON)', instances_index_path(series_master: params[:series_master], short_event: true, format: :json) %>
+</h5>

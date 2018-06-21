@@ -57,7 +57,7 @@ class SubscriptionsController < ApplicationController
         ChangeType: 'Created,Updated,Deleted',
         ClientState: 'SubscribingToOffice',
         NotificationURL: NOTIFY_URL,
-        Resource: "https://outlook.office.com/api/v2.0/me/events?$filter=isAllDay eq true&$select=start,end,subject"
+        Resource: "https://outlook.office.com/api/v2.0/me/events?$filter=isAllDay eq true&$select=start,end,subject,type,recurrence"
       }
     else
       {

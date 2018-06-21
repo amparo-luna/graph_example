@@ -6,9 +6,10 @@ RestApiTest::Application.routes.draw do
   get 'calendar_view/office' => 'calendar_view#office_index'
   get 'calendar_view/index'
   get "extended_properties/new"
-  post "extended_properties/create"
+  post 'extended_properties/create'
   post 'notify' => 'notifications#handle'
   get 'notifications/index'
+  get 'instances/index'
 
   resources :subscriptions, only: [:index, :new, :create]
 end

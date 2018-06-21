@@ -16,7 +16,7 @@
       <td><%= event['subject'] %></td>
       <td><%= date_time_format(event['start']['dateTime']) %></td>
       <td><%= date_time_format(event['end']['dateTime']) %></td>
-      <td><%= event['id'] %></td>
+      <td><%= event['type'] == 'seriesMaster' ? link_to(event['id'], instances_index_path(series_master: event['id'])) : event['id'] %></td>
       <td><%= event['extensions'] %></td>
     </tr>
   <% end %>
