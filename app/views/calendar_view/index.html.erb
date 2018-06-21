@@ -1,45 +1,7 @@
 <h1>Calendar View</h1>
 <h5>
-  <%= link_to 'See Raw JSON', calendar_view_index_path(format: :json) %>
+  <%= link_to 'Use Office365', calendar_view_office_path %>
 </h5>
-  <%= form_tag calendar_view_index_path, method: :get, class: 'inline-form' do %>
-    <div class="form-group">
-      <%= label_tag 'delta_token', 'Delta Token:' %>
-      <%= text_area_tag 'delta_token', params[:delta_token], class: 'form-control', rows: 3 %>
-    </div>
-    <%= submit_tag 'Send Token', class: 'btn btn-primary' %>
-  <% end %>
-<br>
-<br>
-<% if @events.any? %>
-  <table class="table">
-    <tr>
-      <th>Subject</th>
-      <th>Type</th>
-      <th>Start</th>
-      <th>End</th>
-    </tr>
-    <% @events.each do |event| %>
-      <tr>
-      <% if event.key?('@removed') %>
-        <td colspan="4">Event Removed</td>
-      <% else %>
-        <td><%= event['subject'] %></td>
-        <td><%= event['type'] %></td>
-        <td><%= event['start']['dateTime'] if event['start'] %></td>
-        <td><%= event['end']['dateTime'] if event['end'] %></td>
-      <% end %>
-      </tr>
-    <% end %>
-  </table>
-<% end %>
-  <br>
-  <br>
-<% if @skip_token.present? %>
-  <%= link_to 'Next sync step', calendar_view_index_path(skip_token: @skip_token) %>
-<% end %>
-
-<% if @delta_token.present? %>
-  <h4>No more items to display. Make note of this delta token for the next sync</h4>
-  <samp><%= @delta_token %></samp>
-<% end %>
+<h5>
+  <%= link_to 'Use Graph', calendar_view_graph_path %>
+</h5>

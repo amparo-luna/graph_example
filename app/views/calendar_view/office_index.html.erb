@@ -1,0 +1,48 @@
+<h1>Calendar View</h1>
+<h5>
+  <%= link_to 'See Raw JSON', calendar_view_office_path(skip_token: params[:skip_token], delta_token: params[:delta_token], start: params[:start], end: params[:end], format: :json) %>
+</h5>
+  <%= form_tag calendar_view_office_path, method: :get, class: 'inline-form' do %>
+    <div class="form-group">
+      <%= label_tag 'delta_token', 'Delta Token:' %>
+      <%= text_area_tag 'delta_token', params[:delta_token], class: 'form-control', rows: 3 %>
+      <%= hidden_field_tag 'start', params[:start] %>
+      <%= hidden_field_tag 'end', params[:end] %>
+    </div>
+    <%= submit_tag 'Send Token', class: 'btn btn-primary' %>
+  <% end %>
+<br>
+<br>
+<% if @events.any? %>
+  <table class="table">
+    <tr>
+      <th>Subject</th>
+      <th>Type</th>
+      <th>Start</th>
+      <th>End</th>
+    </tr>
+    <% @events.each do |event| %>
+      <tr>
+      <% if event.key?('reason') && event['reason'] == 'deleted' %>
+        <td colspan="1">Event Removed</td>
+        <td colspan="3"><%= event['id'] %></td>
+      <% else %>
+        <td><%= event['Subject'] %></td>
+        <td><%= event['Type'] %></td>
+        <td><%= event['Start']['DateTime'] if event['Start'] %></td>
+        <td><%= event['End']['DateTime'] if event['End'] %></td>
+      <% end %>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+  <br>
+  <br>
+<% if @skip_token.present? || @initial_delta_token.present? %>
+  <%= link_to 'Next sync step', calendar_view_office_path(skip_token: @skip_token, delta_token: @initial_delta_token, start: @start_date_time, end: @end_date_time) %>
+<% end %>
+
+<% if @final_delta_token.present? %>
+  <h4>No more items to display. Make note of this delta token for the next sync</h4>
+  <samp><%= @final_delta_token %></samp>
+<% end %>
