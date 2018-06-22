@@ -55,6 +55,7 @@ GEM
     multi_json (1.12.2)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
+    neatjson (0.8.4)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
     oauth2 (1.2.0)
@@ -128,6 +129,7 @@ DEPENDENCIES
   activeresource!
   activesupport!
   jquery-rails
+  neatjson
   nokogiri (~> 1.6.0)
   oauth2 (~> 1.2.0)
   pry

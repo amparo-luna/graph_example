@@ -2,5 +2,5 @@
 <br>
 <% @notifications.each_with_index do |notification, index| %>
 <h3>Notification #<%= index + 1 %></h3>
-<samp><%= notification.value %></samp>
+<pre><%= format_json_for_html(notification.value['value']) %></pre>
 <% end %>

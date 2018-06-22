@@ -5,5 +5,5 @@
 <br>
 <% @subscriptions.each_with_index do |subscription, index| %>
 <h3>Subscription #<%= index + 1 %></h3>
-<samp><%= subscription.body %></samp>
+<pre><%= format_json_for_html(subscription.body) %></pre>
 <% end %>

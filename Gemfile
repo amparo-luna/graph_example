@@ -17,6 +17,7 @@ gem 'sqlite3'
 gem "rake", "10.0.3"
 gem 'jquery-rails'
 gem 'puma'
+gem 'neatjson'
 
 group :development, :test, :cucumber do
   gem 'nokogiri', '~> 1.6.0'
